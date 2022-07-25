@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\ListingType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -28,6 +27,7 @@ class ListingFactory extends Factory
 
         
         return [
+            'description' => fake()->text,
             'availability' => $availability,
             'location' => array_rand(array_flip(Array("Athens", "Patra", "Thessaloniki")),1),
             'square_meters' => $square_meters,
