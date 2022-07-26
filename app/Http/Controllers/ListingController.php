@@ -20,7 +20,7 @@ class ListingController extends Controller
      */
     public function index(Request $request)
     {
-        // dd($request ->availability);
+        // dd($request);
         $listings = Listing::query();
         if ($request->availability !=null)
         {   
@@ -48,8 +48,9 @@ class ListingController extends Controller
             $locations = explode(',', $request->location);
             $listings = $listings->whereIn('location', $locations);
         }
-        if ($request->types !=null)
+        if ($request->type !=null)
         {   
+            dd($request->types);
             $types = explode(',', $request->types);
             
             $listings = $listings->whereHas(
@@ -62,7 +63,9 @@ class ListingController extends Controller
         }
 
         
-        return new ListingCollection($listings->get());
+        $listes =  ListingResource::collection($listings->get());
+        return view('listings.index')->with('listings', $listes);
+        return $listings;
     }
 
     /**
