@@ -92,10 +92,10 @@ class ListingController extends Controller
      * @param  \App\Models\Listing  $listing
      * @return \Illuminate\Http\Response
      */
-    public function show(Listing $listing)
+    public function show($id)
     {
-        // id
-        // return new ListingResource(Listing::find($id));
+        
+        return new ListingResource(Listing::find($id));
     }
 
     /**
