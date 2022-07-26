@@ -5,17 +5,22 @@
 ## Quick Start
 
 ``` bash
+#Clone the repo
+git clone git@github.com:AlAtsal/SpiN.git
+
+#Copy the .env.example to .env
+cp .env.example .env
 
 # Install Dependencies
-composer install
+sail up -d
 
 # Run Migrations
-php artisan migrate --seed
+sail artisan migrate --seed
 
 # If you get an error about an encryption key
-php artisan key:generate
+sail artisan key:generate
 ```
-
+Your application must be ready in http://localhost
 ## Endpoints
 
 ### List all articles with links and meta
