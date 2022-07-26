@@ -15,6 +15,10 @@ class ListingResource extends JsonResource
      */
     public function toArray($request)
     {
+        $types = array();
+        foreach($this->listingTypes as $type){
+            $types[] = $type;
+        }
         return [
             
             'id' => $this->id,

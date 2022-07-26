@@ -14,4 +14,14 @@ class Listing extends Model
     {
         return $this->belongsToMany(ListingType::class);
     }
+    public function showTypes(){
+        $names = array();
+        $types = $this->listingTypes()->get();
+        // dd($types);
+        foreach($types as $type ){
+            // dd($type);
+            $names[] = $type->name;
+        }
+        return implode(',',$names);
+    }
 }
